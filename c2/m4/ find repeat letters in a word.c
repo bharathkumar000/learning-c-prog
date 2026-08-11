@@ -26,3 +26,46 @@ taylor
 Output:
 0*/
 
+#include <stdio.h>
+
+int main() {
+    char word[51];
+    int i = 0, j, len = 0 , count=0,temp;
+    scanf("%s", word);
+    while (word[len] != '\0') {
+        len++;
+    }
+    i = 0;
+    while (i < len - 1) {
+        j = i + 1;
+
+        while (j < len) {
+            if (word[i] > word[j]) {
+                temp = word[i];
+                word[i] = word[j];
+                word[j] = temp;
+            }
+            j++;
+        }
+
+        i++;
+    }
+    i = 0;
+
+    while (i < len - 1) {
+        if (word[i] == word[i + 1]) {
+            count++;
+
+            
+            while (i < len - 1 && word[i] == word[i + 1]) {
+                i++;
+            }
+        }
+
+        i++;
+    }
+
+    printf("%d", count);
+
+    return 0;
+}
